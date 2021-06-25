@@ -1,0 +1,17 @@
+version: '3.5'
+
+services:
+
+  reactjs:
+    container_name: reactjs-nlwt-2021
+    build:
+      context: .
+    tty: true
+    ports:
+      - '3333:3333'
+      - '3000:3000'
+      - '19006:19006'
+    volumes:
+      - '.:/opt'
+    healthcheck:
+      disable: true
