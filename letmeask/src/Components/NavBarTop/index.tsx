@@ -9,7 +9,7 @@ export function NavBarTop() {
 
   return (
     <Navbar collapseOnSelect expand="lg" bg="light" fixed="top">
-      <Navbar.Brand href="#home">
+      <Navbar.Brand href="/">
         <img src={logoImg} alt="Logo letmeask" />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
