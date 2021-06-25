@@ -1,5 +1,7 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { auth, firebase } from "../Services/fireabase";
+import { useHistory } from 'react-router-dom';
 
 type User = {
     id: string;
@@ -22,6 +24,7 @@ export const AuthContext = createContext({} as AuthContextType);
 export function AuthContextProvider(props: AuthContextProviderProps) {
 
     const [user, setUser] = useState<User>();
+    const history = useHistory();
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(user => {
@@ -71,11 +74,27 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
 
 
     async function signOutGoogle() {
-        firebase.auth().signOut().then(() => {
-            // Sign-out successful.
-        }).catch((error) => {
-            // An error happened.
+
+        await firebase.auth().signOut().catch((error) => {
+            toast(`Erro ao fazer logout!\r\n ${JSON.stringify(error)}`, {
+                duration: 3000,
+                position: 'top-center',
+                icon: '',
+            });
         });
+
+
+        setTimeout(() => {
+            toast('Logout efetuado com sucesso!', {
+                duration: 3000,
+                position: 'top-center',
+                icon: '',
+            });
+
+            setUser(undefined);
+
+            history.push(`/`);
+        }, 1000);
     }
 
     return (

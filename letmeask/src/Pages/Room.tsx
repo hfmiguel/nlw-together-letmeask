@@ -139,7 +139,8 @@ export function Room() {
               </div>
             ) : (
               <span>
-                Para enviar uma perguntar, <button>faça seu login</button>.
+                Para enviar uma perguntar, <button
+                  onClick={() => { history.push("/") }}>faça seu login</button>.
               </span>
             )}
 

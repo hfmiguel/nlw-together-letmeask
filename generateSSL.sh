@@ -16,7 +16,7 @@
 CWD=$(pwd)
 LOCAL_CERT_PATH=$CWD/.cert
 
-CERT_NAME='fxdev.pt (PTV Dev SSL Cert)'
+CERT_NAME='localhost (PTV Dev SSL Cert)'
 ORG_NAME='Promethean TV, Inc.'
 
 DNS_1='dev.embed.promethean.tv'
@@ -112,7 +112,7 @@ basicConstraints=CA:FALSE
 keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment
 subjectAltName = @alt_names
 [alt_names]
-DNS.1 = fxdev.pt
+DNS.1 = localhost
 DNS.2 = $DNS_1
 DNS.3 = $DNS_2
 EOM

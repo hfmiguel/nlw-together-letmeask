@@ -50,13 +50,14 @@ export function AdminRoom() {
 
   async function handleCheckQuestionAsAnswered(questionId: string, isAnswered: boolean) {
 
+    var message = "";
     if (!isAnswered) {
-      var message = 'Pergunta marcada como respondida';
+      message = 'Pergunta marcada como respondida';
       await database.ref(`/rooms/${roomId}/questions/${questionId}`).update({
         isAnswered: true
       });
     } else {
-      var message = 'Pergunta desmarcada como respondida';
+      message = 'Pergunta desmarcada como respondida';
       await database.ref(`/rooms/${roomId}/questions/${questionId}`).update({
         isAnswered: false
       });
@@ -70,13 +71,14 @@ export function AdminRoom() {
 
   async function handleHighlightQuestion(questionId: string, isHighlighted: boolean) {
 
+    var returnMessage = "";
     if (!isHighlighted) {
-      var returnMessage = 'Pergunta marcada como destaque!';
+      returnMessage = 'Pergunta marcada como destaque!';
       await database.ref(`/rooms/${roomId}/questions/${questionId}`).update({
         isHighlighted: true
       });
     } else {
-      var returnMessage = 'Pergunta removida dos destaques!';
+      returnMessage = 'Pergunta removida dos destaques!';
       await database.ref(`/rooms/${roomId}/questions/${questionId}`).update({
         isHighlighted: false
       });

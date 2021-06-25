@@ -16,12 +16,14 @@ export function Home() {
     const [roomCode, setRoomCode] = useState('');
 
     async function handleCreateRoom() {
+
+        console.log(user);
         if (!user) {
             await signInWithGoogle();
         }
         history.push("/rooms/new");
     }
-    
+
     async function handleJoinRoom(event: FormEvent) {
         try {
             event.preventDefault();
