@@ -28,15 +28,11 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(user => {
-
             if (user) {
-
                 const { displayName, photoURL, uid } = user;
-
                 if (!displayName || !photoURL) {
                     throw new Error("Missing informations from Google");
                 }
-
                 setUser({
                     id: uid,
                     name: displayName,
@@ -72,9 +68,7 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
         }
     }
 
-
     async function signOutGoogle() {
-
         await firebase.auth().signOut().catch((error) => {
             toast(`Erro ao fazer logout!\r\n ${JSON.stringify(error)}`, {
                 duration: 3000,

@@ -69,11 +69,6 @@ export function Room() {
     }
   }
 
-  useEffect(() => {
-    roomIsEnded(roomId);
-  }, [roomId]);
-
-
   async function roomIsEnded(roomCode: string) {
     try {
 
@@ -103,6 +98,11 @@ export function Room() {
       console.log(error);
     }
   }
+
+  useEffect(() => {
+    roomIsEnded(roomId);
+  }, [roomId]);
+
   return (
     <div id="page-room">
       <header>
@@ -132,7 +132,6 @@ export function Room() {
           <div className="form-footer">
 
             {user ? (
-
               <div className="user-info">
                 <img src={user?.avatar} alt={user.name} />
                 <span>{user.name}</span>

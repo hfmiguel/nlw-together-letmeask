@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Alert } from './Components/Alert';
+import { NavBarTop } from './Components/NavBarTop';
 import { AuthContextProvider } from './Context/AuthContext';
 import { AdminRoom } from './Pages/AdminRoom';
 import { Home } from './Pages/Home';
@@ -7,12 +8,15 @@ import { NewRoom } from './Pages/NewRoom';
 import { Room } from './Pages/Room';
 
 function App() {
-  return (
 
+  return (
     <>
       <Alert />
+
       <BrowserRouter>
         <AuthContextProvider>
+          <NavBarTop />
+
           <Switch>{/* previne que rotas sejam sobrepostas ( rotas que tem path inicial iguais ) */}
             <Route path="/" exact={true} component={Home} />
             <Route path="/rooms/new" exact={true} component={NewRoom} />
@@ -21,7 +25,6 @@ function App() {
           </Switch>
         </AuthContextProvider>
       </BrowserRouter>
-
     </>
   )
 }

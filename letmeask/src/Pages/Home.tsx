@@ -15,6 +15,8 @@ export function Home() {
     const { user, signInWithGoogle } = useAuth();
     const [roomCode, setRoomCode] = useState('');
 
+    console.log(`e ai ${user?.name}`);
+
     async function handleCreateRoom() {
 
         console.log(user);
@@ -70,13 +72,17 @@ export function Home() {
             <main>
                 <div className="main-content">
                     <img src={logoImg} alt="Letmeask" />
-
-                    <button className="create-room" onClick={handleCreateRoom}>
-                        <img src={googleIconImg} alt="Logo do Google" />
-                        Crie sua sala com o Google
-                    </button>
-
-                    <div className="separator">ou entre em uma sala</div>
+                    {
+                        !user && (
+                            <>
+                                <button className="create-room" onClick={handleCreateRoom}>
+                                    <img src={googleIconImg} alt="Logo do Google" />
+                                    Faça login para Continuar
+                                </button>
+                                <div className="separator">ou entre em uma sala</div>
+                            </>
+                        )
+                    }
 
                     <form onSubmit={handleJoinRoom}>
                         <input
@@ -85,7 +91,6 @@ export function Home() {
                             onChange={event => setRoomCode(event.target.value)}
                             value={roomCode}
                         />
-
                         <Button type="submit">
                             Entrar na sala
                         </Button>
