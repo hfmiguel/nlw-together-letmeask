@@ -1,0 +1,35 @@
+#my-room {
+
+  margin-top: 48px;
+  align-items: stretch;
+  justify-content: center;
+
+  main {
+
+    max-width: 800px;
+    margin: 0 auto;
+
+    .room-title {
+      margin: 32px 0 24px;
+      display: flex;
+      align-items: center;
+
+      h1 {
+        font-family: 'Poppins', sans-serif;
+        font-size: 24px;
+        color: #29292e;
+      }
+
+      span {
+        margin-left: 16px;
+        background: #e559f9;
+        border-radius: 9999px;
+        padding: 8px 16px;
+        color: #fff;
+        font-weight: 500;
+        font-size: 14px;
+      }
+    }
+   
+  }
+}

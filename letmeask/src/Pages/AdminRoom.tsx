@@ -90,6 +90,8 @@ export function AdminRoom() {
       icon: '',
     });
   }
+
+  console.log("aqui ", questions);
   return (
 
     <div id="page-room">
