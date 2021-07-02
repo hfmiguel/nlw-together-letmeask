@@ -1,7 +1,6 @@
 import copyImg from '../../assets/images/copy.svg';
 import './style.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useAuth } from '../../Hooks/useAuth';
 
 type RoomCodeProps = {
   code: string;

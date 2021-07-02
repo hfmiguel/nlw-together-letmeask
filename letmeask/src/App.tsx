@@ -3,7 +3,7 @@ import { Alert } from './Components/Alert';
 import { NavBarTop } from './Components/NavBarTop';
 import { AuthContextProvider } from './Context/AuthContext';
 import { AdminRoom } from './Pages/AdminRoom';
-import { Home } from './Pages/Home';
+import { Home } from './Pages/Home/Index';
 import { MyRoom } from './Pages/MyRooms';
 import { NewRoom } from './Pages/NewRoom';
 import { Room } from './Pages/Room';
@@ -13,7 +13,6 @@ function App() {
   return (
     <>
       <Alert />
-
       <BrowserRouter>
         <AuthContextProvider>
           <NavBarTop />

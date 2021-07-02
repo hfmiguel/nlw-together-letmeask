@@ -54,6 +54,8 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
 
         if (result.user) {
 
+
+            console.log(result.user);
             const { displayName, photoURL, uid } = result.user;
 
             if (!displayName || !photoURL) {

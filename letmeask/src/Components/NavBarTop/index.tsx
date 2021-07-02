@@ -15,8 +15,13 @@ export function NavBarTop() {
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link href={`/rooms/new/`}>Nova sala</Nav.Link>
-          <Nav.Link href={`/my/rooms/`}>Minhas Salas</Nav.Link>
+          {
+            user && (
+              <>
+                <Nav.Link href={`/rooms/new/`}>Nova sala</Nav.Link>
+                <Nav.Link href={`/my/rooms/`}>Minhas Salas</Nav.Link>
+              </>
+            )}
         </Nav>
         {
           user && (

@@ -3,10 +3,11 @@ import { FormEvent, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import illustrationImg from '../assets/images/illustration.svg';
 import logoImg from '../assets/images/logo.svg';
-import { Button } from '../Components/Button/Index';
+// import { Button } from '../Components/Button/Index';
+import Button from 'react-bootstrap/Button'
 import { useAuth } from '../Hooks/useAuth';
 import { database } from '../Services/fireabase';
-import '../styles/auth.scss';
+import './Home/style.scss';
 
 
 export function NewRoom() {
