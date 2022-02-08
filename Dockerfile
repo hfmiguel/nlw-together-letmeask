@@ -28,12 +28,7 @@ RUN npm cache clean --force
 # due to default /opt permissions we have to create the dir with root and change perms
 WORKDIR /opt
 
-RUN chown root:root -R /opt
+RUN chown root:node -R /opt
 USER root
 
-RUN yarn create react-app letmeask2 --template typescript
-RUN cd letmeask2
-COPY package.json letmeask2/
-RUN rm -rf yarn.lock && yarn install
-
-CMD ["node", "yarn start"]
+CMD ["node"]

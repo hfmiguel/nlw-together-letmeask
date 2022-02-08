@@ -2,7 +2,7 @@ version: '3.5'
 
 services:
 
-  reactjs:
+  reactjs-nlwt-2021:
     container_name: reactjs-nlwt-2021
     build:
       context: .
@@ -10,7 +10,17 @@ services:
     ports:
       - '3333:3333'
       - '3000:3000'
-      - '19006:19006'
+    entrypoint: ["/bin/sh","-c"]
+    command:
+      - -c
+      - |
+        whoami
+        export env REACT_NATIVE_PACKAGER_HOSTNAME=fxdev.pt
+        chmod -R 777 /opt/letmeask/node_modules/
+        cd letmeask
+        yarn install
+        npx browserslist@latest --update-db
+        npm run dev
     volumes:
       - '.:/opt'
     healthcheck:
